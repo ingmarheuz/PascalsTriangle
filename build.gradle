@@ -13,28 +13,40 @@ buildscript {
     }
 }
 
-apply plugin: 'org.junit.platform.gradle.plugin'
+//apply plugin: 'org.junit.platform.gradle.plugin'
 apply plugin: 'kotlin'
 
-junitPlatform {
-    filters {
-        engines {
-            include 'spek'
-        }
-    }
-}
+//junitPlatform {
+//    // platformVersion '1.0.2'
+//    filters {
+//        engines {
+//            include 'junit-jupiter', 'junit-vintage'
+//            // exclude 'custom-engine'
+//        }
+//        tags {
+//            // include 'fast'
+////            exclude 'slow'
+//        }
+//        // includeClassNamePattern '.*Test'
+//    }
+//    // enableStandardTestTask true
+//    // reportsDir file('build/test-results/junit-platform') // this is the default
+//    logManager 'org.apache.logging.log4j.jul.LogManager'
+//}
 
 repositories {
     mavenCentral()
-    maven { url "http://dl.bintray.com/jetbrains/spek" }
+//    maven { url "http://dl.bintray.com/jetbrains/spek" }
 }
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
     compile "org.jetbrains.kotlin:kotlin-reflect:1.1.51"
-    testCompile 'org.jetbrains.spek:spek-api:1.1.5'
-    testRuntime 'org.jetbrains.spek:spek-junit-platform-engine:1.1.5'
-    testCompile 'org.junit.platform:junit-platform-runner:1.0.0'
+//    testCompile 'org.jetbrains.spek:spek-api:1.1.5'
+//    testRuntime 'org.jetbrains.spek:spek-junit-platform-engine:1.1.5'
+//    testCompile 'org.junit.platform:junit-platform-runner:1.0.0'
+//    testCompile 'org.junit.platform:junit-platform-engine:1.0.0'
+    testCompile "junit:junit:4.12"
     testCompile 'com.willowtreeapps.assertk:assertk:0.9'
 }
 
