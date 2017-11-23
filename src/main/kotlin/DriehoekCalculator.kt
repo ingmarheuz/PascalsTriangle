@@ -1,18 +1,23 @@
 class DriehoekCalculator {
     fun driehoek(row: Int): List<IntArray> {
-        var driehoek = listOf<IntArray>()
+        val driehoek = initialize(row)
         for (currentRow in row downTo 1 ) {
-            val rowArray = IntArray(currentRow)
             for (column in 1..currentRow) {
-                val value = pascal(currentRow, column)
-                rowArray[column - 1] = value
+                driehoek.get(currentRow-1)[column -1] = pascal(currentRow, column)
             }
-            driehoek += rowArray
         }
         return driehoek
     }
 
-    fun pascal(row: Int, column: Int): Int {
+    private fun initialize(row: Int): List<IntArray> {
+        var initializedDriehoek = listOf<IntArray>()
+        for( i in 1 .. row) {
+            initializedDriehoek += IntArray(i)
+        }
+        return initializedDriehoek
+    }
+
+    private fun pascal(row: Int, column: Int): Int {
         if (column == 1 || column == row) {
             return 1
         }
